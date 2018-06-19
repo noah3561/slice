@@ -5,8 +5,8 @@
  */
 
 const { Command } = require('discord-akairo');
-const { MessageEmbed } = require("discord.js")
-const request = require("snekfetch")
+const { MessageEmbed } = require('discord.js');
+const request = require('snekfetch');
 
 class ShortURL extends Command {
   constructor() {
@@ -19,17 +19,17 @@ class ShortURL extends Command {
   async exec(m) {
     const url = m.content.slice(m.content.search(' ') + 1);
 
-        const res = await request.get(`http://tinyurl.com/api-create.php?url=${encodeURIComponent(url)}`);
+    const res = await request.get(`http://tinyurl.com/api-create.php?url=${encodeURIComponent(url)}`);
 
-        const embed = new MessageEmbed()
-        .setTitle("URL Shortener")
-        .setDescription("Shortens any URL that is specified.")
-        .setColor(0xA52A2A)
-        .setTimestamp()
-        .addField("Original URL", url, false)
-        .addField("Shortened URL", res.body, false)
+    const embed = new MessageEmbed()
+      .setTitle('URL Shortener')
+      .setDescription('Shortens any URL that is specified.')
+      .setColor(0xA52A2A)
+      .setTimestamp()
+      .addField('Original URL', url, false)
+      .addField('Shortened URL', res.body, false);
 
-        m.channel.send({ embed })
+    m.channel.send({ embed });
   }
 }
 
