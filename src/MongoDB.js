@@ -93,13 +93,20 @@ class MongoDB {
   }
   // Utilities
   get guilds() {
-    if (!this.collections.guilds || Date.now() - this.collections.guilds.age >= 900000) {
-      this.collections.guilds = {
-        col: this.db.collection(mongo.collections.guilds),
+    return this.fetchCollection(mongo.collections.guilds);
+  }
+  get settings() {
+    return this.fetchCollection("settings");
+  }
+  fetchCollection(name) {
+    if (!this.db) throw new Error('Database Not Ready');
+    if (!this.collections[name] || Date.now() - this.collections[name].age >= 900000) {
+      this.collections[name] = {
+        col: this.db.collection(name),
         age: Date.now()
       };
     }
-    return this.collections.guilds.col;
+    return this.collections[name].col;
   }
   verifyDataIntegrity(gid, data) {
     return _.merge(new DefaultServer(gid), data);
