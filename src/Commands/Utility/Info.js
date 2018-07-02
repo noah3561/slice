@@ -27,7 +27,7 @@ class Info extends Command {
   exec(m, args) {
     if (!args.infoType) {
       return m.channel.send('Invalid Option. Please choose `bot`, `user`, `shard`, `guild` (`server`), or `help`. ' +
-        `Example: \`${this.handler.prefix}${this.id} bot\``);
+        `Example: \`${this.handler.defaultPrefix}${this.id} bot\``);
     } else if (args.infoType == 'user') {
       return this.handler._handleCommand(m, args.content, this.handler.modules.get('userinfo'));
     } else if (args.infoType == 'shard') {

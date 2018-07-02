@@ -26,7 +26,7 @@ class Database extends Command {
   exec(m, args) {
     if (!args.infoType) {
       return m.channel.send('Invalid Option. Please choose `debug`, `reset`, or `help`. ' +
-        `Example: \`${this.handler.prefix}${this.id} reset\``);
+        `Example: \`${this.handler.defaultPrefix}${this.id} reset\``);
     } else if (args.infoType == 'debug') {
       return this.handler._handleCommand(m, args.content, this.handler.modules.get('dbdebug'));
     } else if (args.infoType == 'reset') {

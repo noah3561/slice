@@ -6,7 +6,7 @@
 
 const { Command } = require('discord-akairo');
 
-class DBDebug extends Command {
+class DBReset extends Command {
   constructor() {
     super('dbreset', {
       description: 'Resets the guild\'s settings.',
@@ -21,4 +21,4 @@ class DBDebug extends Command {
   }
 }
 
-module.exports = DBDebug;
+module.exports = DBReset;

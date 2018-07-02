@@ -15,14 +15,13 @@ class BotInfo extends Command {
       typing: true
     });
   }
-  async exec(m) {
-    const app = await this.client.fetchApplication();
+  exec(m) {
     return m.channel.send(ce(
       this.client.akairoOptions.colors.orange, null, 'Bot Information',
       'Here\'s some information about me!',
       [
         { name: ':1234: Version', value: 'Version 2A' },
-        { name: ':tools: Owner', value: `${app.owner.tag} (${app.owner.id})` },
+        { name: ':tools: Owners', value: `FireController1847#3577 (112732946774962176)\nNooooah#2448 (187771864435785728)` },
         { name: ':books: Library', value: `I was coded using Akairo ${version} with Discord.js ${discord.version} on Node.js ${process.version}.` },
         { name: ':desktop: Host', value: 'Running on Ubuntu 16.04 using the Wholesale platform. Currently using the Dual Intel Xeon 5420 Preconfigured plan for 30$/month.' },
         { name: ':map: Location', value: 'Kansas City, Missouri, USA.' }

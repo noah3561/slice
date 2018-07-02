@@ -96,7 +96,7 @@ class MongoDB {
     return this.fetchCollection(mongo.collections.guilds);
   }
   get settings() {
-    return this.fetchCollection("settings");
+    return this.fetchCollection('settings');
   }
   fetchCollection(name) {
     if (!this.db) throw new Error('Database Not Ready');

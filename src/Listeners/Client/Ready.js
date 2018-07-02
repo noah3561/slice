@@ -15,7 +15,7 @@ class ClientReady extends Listener {
   }
 
   exec() {
-    this.client.user.setActivity(`${this.client.akairoOptions.prefix}help`, {
+    this.client.user.setActivity(`${this.client.akairoOptions.defaultPrefix}help`, {
       url: 'https://www.twitch.tv/monstercat/',
       type: 'STREAMING'
     });
